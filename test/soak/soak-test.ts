@@ -7,12 +7,14 @@ import { login } from '../../helpers/auth.ts';
 import { jsonHeaders } from '../../helpers/utils.ts';
 
 export const options: Options = {
-    vus: 1,
-    duration: '30s',
+    stages: [
+        { duration: '20s', target: 30 },
+        { duration: '100s', target: 30 },
+        { duration: '20s', target: 0 },
+    ],
     thresholds: {
-        http_req_duration: ['p(95)<800'],
-        http_req_failed: ['rate<0.01'],
-        checks: ['rate>0.99']
+        http_req_duration: ['p(95)<1500'],
+        http_req_failed: ['rate<0.02'],
     },
 };
 
