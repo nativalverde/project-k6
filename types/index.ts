@@ -18,6 +18,11 @@ export interface ForgotPassword {
   email: string
 }
 
+// interface de la respuesta del forgot-password
+export interface ForgotPasswordResponse {
+  email: string
+}
+
 export interface BlogPost {
   id: string,
   title: string,
